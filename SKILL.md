@@ -1,6 +1,10 @@
 ---
 name: party-mode-meeting
 description: Run a sequential roundtable meeting with multiple available agents. Use when the user invokes /party or asks for a structured multi-agent discussion where agents assemble as a small group, speak one at a time, may react to each other, and produce a final meeting transcript.
+version: 0.1.0
+metadata:
+  openclaw:
+    skillKey: party
 ---
 
 # Party Mode Meeting
