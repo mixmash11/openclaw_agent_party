@@ -1,0 +1,38 @@
+{
+  "id": "party-orchestrator",
+  "name": "Party Orchestrator",
+  "description": "Runs a task-aware multi-agent roundtable over configured OpenClaw agents and workspace skills.",
+  "version": "0.1.0",
+  "commandAliases": [
+    {
+      "name": "party",
+      "kind": "runtime-slash",
+      "description": "Run a task-aware multi-agent roundtable."
+    }
+  ],
+  "activation": {
+    "onStartup": true,
+    "onCommands": ["party"]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "maxParticipants": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 8
+      },
+      "maxWorkers": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 10
+      },
+      "turnTimeoutMs": {
+        "type": "number",
+        "minimum": 5000,
+        "maximum": 600000
+      }
+    }
+  }
+}

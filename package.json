@@ -1,0 +1,38 @@
+{
+  "name": "openclaw-agent-party",
+  "version": "0.1.0",
+  "description": "OpenClaw Party Mode skill and local runner.",
+  "type": "module",
+  "private": true,
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "party": "node scripts/run-party.mjs",
+    "openclaw:agent": "openclaw agent",
+    "openclaw:skills": "openclaw skills list --eligible",
+    "openclaw:profile:setup": "node scripts/setup-openclaw-profile.mjs --profile party",
+    "openclaw:profile:skills": "openclaw --profile party skills list --eligible",
+    "party:profile": "node scripts/run-party.mjs --profile party",
+    "plugin:install": "openclaw --profile party plugins install -l ./plugins/party-orchestrator",
+    "plugin:inspect": "openclaw --profile party plugins inspect party-orchestrator --runtime",
+    "clawhub:login": "clawhub login",
+    "clawhub:sync:dry-run": "clawhub sync --root ./skills --dry-run",
+    "clawhub:publish": "clawhub skill publish ./skills/party --slug party --name \"Party Mode Meeting\" --version 0.1.0 --tags latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixmash11/openclaw_agent_party.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mixmash11/openclaw_agent_party/issues"
+  },
+  "homepage": "https://github.com/mixmash11/openclaw_agent_party#readme",
+  "devDependencies": {
+    "clawhub": "^0.15.0",
+    "openclaw": "^2026.5.7"
+  }
+}

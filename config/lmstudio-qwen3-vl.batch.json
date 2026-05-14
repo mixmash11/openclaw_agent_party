@@ -1,0 +1,23 @@
+[
+  {
+    "path": "models.providers.lmstudio",
+    "value": {
+      "baseUrl": "http://127.0.0.1:1234/v1",
+      "apiKey": "lmstudio",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3-vl-4b",
+          "name": "Qwen3 VL 4B",
+          "contextWindow": 32768,
+          "maxTokens": 4096,
+          "input": ["text", "image"]
+        }
+      ]
+    }
+  },
+  {
+    "path": "agents.defaults.model",
+    "value": "lmstudio/qwen3-vl-4b"
+  }
+]

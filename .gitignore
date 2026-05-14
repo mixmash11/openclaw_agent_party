@@ -1,0 +1,5 @@
+node_modules/
+.env
+.openclaw/
+.openclaw-profile-setup.batch.json
+npm-debug.log*

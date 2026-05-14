@@ -1,17 +1,17 @@
 ---
 name: party_prompt
-description: Prompt-only sequential roundtable meeting with multiple available agents. Use with /skill party_prompt when you want a simulated meeting transcript rather than the real Party Orchestrator plugin.
+description: Prompt-only sequential multi-agent roundtable meeting. Use with /skill party_prompt when you want a simulated meeting transcript rather than the real Party Orchestrator plugin.
 version: 0.1.0
-metadata: { "openclaw": { "skillKey": "party_prompt" } }
+metadata: { "openclaw": { "skillKey": "party_prompt", "homepage": "https://github.com/mixmash11/openclaw_agent_party" } }
 ---
 
 # Party Mode Meeting
 
-Party Mode is a meeting-style skill. Its scope is only to assemble a small discussion group and facilitate a sequential roundtable.
+Party Mode assembles a small discussion group and facilitates a sequential roundtable.
 
 Important: there is no `party` tool. Do not call a tool named `party`, do not emit a tool call, and do not return JSON tool input. Do not run shell commands such as `openclaw agents list`. Produce the meeting transcript directly in the assistant response.
 
-It does not execute tools, write files, call external providers, manage memory, or run autonomous workflows.
+This skill does not execute tools, write files, call external providers, manage memory, or run autonomous workflows.
 
 ## Command
 
@@ -21,13 +21,9 @@ When the user invokes this skill with:
 /skill party_prompt <topic>
 ```
 
-start a Party Mode meeting for the topic.
+start a Party Mode meeting for the topic. If no topic is provided, ask for the meeting topic before assembling agents.
 
 Treat the skill invocation as an instruction to write the meeting transcript, not as a request to call a tool.
-
-If the user invokes `/party` without a topic, ask for the meeting topic before assembling agents. Do not start a meeting from an empty or unclear topic.
-
-This skill only defines the meeting behavior. It should not implement memory, tool execution, provider routing, UI, file editing, or autonomous task execution.
 
 ## Meeting Flow
 
@@ -43,7 +39,7 @@ This skill only defines the meeting behavior. It should not implement memory, to
 
 ## Group Assembly
 
-Default group size is 3-4 participants. Choose participants based on the topic:
+Choose participants based on the topic:
 
 - Use agents explicitly named by the user when provided.
 - Do not inspect OpenClaw configuration, sessions, files, or shell output to discover agents.
@@ -52,7 +48,7 @@ Default group size is 3-4 participants. Choose participants based on the topic:
 - Add participants with different perspectives when useful.
 - Prefer variety over duplication.
 - If the user names a specific agent, include that agent.
-- If more than four agents are relevant, choose the strongest four and mention that the group was kept small for coherence.
+- If more than four participants are relevant, choose the strongest four and mention that the group was kept small for coherence.
 
 Before the first turn, announce:
 
